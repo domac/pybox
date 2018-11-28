@@ -8,7 +8,7 @@ test_log_line = "2018-11-28 10:00:42.294 [i] [main.(*ConnscStat).PrintStats] [st
 test_log_line2 = "2018-11-28 10:18:42.499 [i] [main.(*ConnscStat).PrintStats] [stat.go.90] >>> cmd [3164] reject calls count: 120"
 test_log_line3 = "2018-11-28 10:19:42.499 [i] [main.(*ConnscStat).PrintStats] [stat.go.102] "
 
-regex = '(\d{4}[-/]\d{2}[-/]\d{2}\s+\d{2}\:\d{2}\:\d{2}\.\d+)\s+\[.\]\s+\[main.\(\*ConnscStat\).PrintStats\] \[stat.go.\d+\]\s+>>>\s+cmd\s+\[(\d+)\](\s+\w+){3}:\s?(\d+)'
+regex = '(\d{4}[-/]\d{2}[-/]\d{2}\s+\d{2}\:\d{2}\:\d{2})\.\d+\s+\[.\]\s+\[main.\(\*ConnscStat\).PrintStats\] \[stat.go.\d+\]\s+>>>\s+cmd\s+\[(\d+)\]\s+(\w+)(\s+\w+)+:\s?(\d+)'
 
 reg = re.compile(regex)
 
