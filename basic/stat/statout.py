@@ -2,13 +2,12 @@
 #-*- coding: utf-8 -*-
 
 import re
+import argparse
 
-filepath = 'stat_full.log'
-cmd = '3068'
-op = 'allow'
-
-# 正则处理
+cmd = ''
+op = ''
 regex = '(\d{4}[-/]\d{2}[-/]\d{2}\s+\d{2}\:\d{2}\:\d{2})\.\d+\s+\[.\]\s+\[main.\(\*ConnscStat\).PrintStats\] \[stat.go.\d+\]\s+>>>\s+cmd\s+\[(\d+)\]\s+(\w+)(\s+\w+)+:\s?(\d+)'
+
 reg = re.compile(regex)
 
 
@@ -29,4 +28,14 @@ def readlines(filename):
             output(line)
 
 
-readlines(filepath)
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-f', type=str, help='filepath of stat log')
+    parser.add_argument('-cmd', type=str, default='', help='cmd')
+    parser.add_argument('-op', type=str, default='', help='operator')
+    args = parser.parse_args()
+    print 'query cmd: %s, op: %s' % (args.cmd, args.op)
+
+    cmd = args.cmd
+    op = args.op
+    readlines(args.f)
