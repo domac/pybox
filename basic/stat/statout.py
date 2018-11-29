@@ -3,6 +3,7 @@
 
 import re
 import argparse
+import sys
 
 cmd = ''
 op = ''
@@ -35,6 +36,10 @@ if __name__ == "__main__":
     parser.add_argument('-op', type=str, default='', help='operator')
     args = parser.parse_args()
     print 'query cmd: %s, op: %s' % (args.cmd, args.op)
+
+    if not args.f:
+        print 'please input filepath using -f '
+        sys.exit(1)
 
     cmd = args.cmd
     op = args.op
