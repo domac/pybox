@@ -10,8 +10,9 @@ op = ''
 start = ''
 end = ''
 regex = '(\d{4}[-/]\d{2}[-/]\d{2}\s+\d{2}\:\d{2}\:\d{2})\.\d+\s+\[.\]\s+\[main.\(\*ConnscStat\).PrintStats\] \[stat.go.\d+\]\s+>>>\s+cmd\s+\[(\d+)\]\s+(\w+)(\s+\w+)+:\s?(\d+)'
+regex2 = '(\d{4}[-/]\d{2}[-/]\d{2}\s+\d{2}\:\d{2}\:\d{2})\.\d+\s+\[.\]\s+\[main.\(\*ConnscStat\).PrintStats\] \[stat.go.\d+\]\s+.+\s+cmd\s+\[(\d+)\]\s+(\w+)(\s+\w+)+\s?:\s?(\d+)'
 
-reg = re.compile(regex)
+reg = re.compile(regex2)
 
 
 def output(line):
